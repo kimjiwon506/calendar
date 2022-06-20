@@ -32,7 +32,7 @@ dataPicker();
   let minute = today.getMinutes();
   let second = today.getSeconds();
   const ampm = hour >= 12 ? 'PM' : 'AM';
-  const printTimeEl = document.querySelector(".print-time")
+  const printTimeEl = document.querySelector(".print-time");
 
   hour %= 12;
   hour = hour || 12;
@@ -51,11 +51,11 @@ function dataPicker() {
   dateInputEl.textContent = `${year}년 ${month}월 ${day}일`;
   datePickerEl.addEventListener("click", toggleCalendar);
   nextBtnEl.addEventListener("click", moveToNextMonth);
-  // prevBtnEl.addEventListener("click", moveToPrevMonth);
 }
 function moveToNextMonth() {
   this.today = new Date(today.getFullYear(), today.getMonth() + 1).getDate();
   toggleCalendar();
+
 }
 
 function toggleCalendar() {
@@ -117,11 +117,11 @@ function colorSaturday() {
 }
 
 function colorSunday() {
-  const saturdayEls = calendarDatesEl.querySelectorAll(
+  const sundayEls = calendarDatesEl.querySelectorAll(
     `.date:nth-child(7n+${8 - new Date(year, month, 1).getDay()})`
   );
 
-  for (let i = 0; i < saturdayEls.length; i++) {
-    saturdayEls[i].style.color = "red";
+  for (let i = 0; i < sundayEls.length; i++) {
+    sundayEls[i].style.color = "red";
   }
 }
